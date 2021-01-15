@@ -280,7 +280,7 @@ Ok, this is already much cleaner than copying and pasting that `if`/`elif`/`else
 
 Now, write a function to loop over all of the reviews in the list, and count how many are positive, negative, and neutral.
 
-The function should be called `get_sentiment_counts`, take one argument (the list of reviews) and return a dictionary containing the counts. A counter dictionary has been initialized for you with `"positive"`, `"negative"`, and `"neutral"` as the keys and values starting at 0.
+The function should be called `get_sentiment_counts`, take one argument (the list of reviews), and return a dictionary containing the counts. A counter dictionary has been initialized for you with `"positive"`, `"negative"`, and `"neutral"` as the keys and values starting at 0.
 
 
 ```python
@@ -435,7 +435,7 @@ Now, write a function called `get_years` to loop over all of the reviews in the 
 Hints:
 
  - Remember that you can use the `set()` function to keep only the unique elements in a list. Just make sure you use `list()` afterwards to convert it back to a list data type. This is not the only solution, however!
- - There is a list method ([docs here](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists)) that will automatically order the years; you don't need to write sorting logic "by hand"
+ - There is a list method named `.sort()` ([look it up in the python list documentation here](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists)) that will automatically order the years; you don't need to write sorting logic "by hand"
 
 
 ```python
@@ -481,7 +481,7 @@ print(type(get_years(reviews)))
     <class 'list'>
 
 
-Now we know, we have data spanning 2007-2018, with no data from 2010. In some contexts that absence might be worth investigating — is it a random artifact of our sample, or are we missing 2010 data for a reason that matters? For now we'll just keep moving on to the next section, now that we have a clearer sense of the kinds of reviews in our dataset and the years they were written.
+Now we know that we have data spanning 2007-2018, with no data from 2010. In some contexts that absence might be worth investigating — is it a random artifact of our sample, or are we missing 2010 data for a reason that matters? For now we'll just keep moving on to the next section, now that we have a clearer sense of the kinds of reviews in our dataset and the years they were written.
 
 ## Subset Sampling
 
@@ -976,13 +976,13 @@ print(get_review_summary(reviews[2]))
 
 Now, instead of copying and pasting that every time, we can just call it repeatedly!
 
-Write a function that prompts the user to enter a review index, then prints the relevant review summary. The function should be called `review_summary_prompt`, it should take a list of reviews as an argument, and should print information but not return anything.
+Write a function that prompts the user to enter a review index, then prints the relevant review summary. The function should be called `review_summary_prompt`, it should take a list of reviews as an argument, and should print information but not return anythi9ng.
 
 Display the message `"Please enter a review index: "` when prompting for input. You can assume that the user will enter a valid index between 0 and 85.
 
 Hints:
 
- - Use the built-in `input()` function
+ - Use the built-in `input()` function ([check the documentation here to see how to use it!](https://docs.python.org/3/library/functions.html#input))
  - Remember that this function always returns a string, so you will have to convert the user-supplied index into an integer, otherwise you'll get the error `TypeError: list indices must be integers or slices, not str`
  - If you're wondering about the type of a given variable, you can use the built-in `type()` function
 
