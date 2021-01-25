@@ -123,19 +123,6 @@ def review_sentiment(review):
 
 
 ```python
-def review_sentiment(review):
-    rating = review["rating"]
-    
-    if rating >= 4:
-        return "positive"
-    elif rating <= 2:
-        return "negative"
-    else:
-        return "neutral"
-```
-
-
-```python
 # Run this cell without changes
 review_sentiment(reviews[2]) # 'positive'
 ```
@@ -174,32 +161,6 @@ def get_sentiment_counts(review_list):
 
 get_sentiment_counts(reviews) # {'positive': 67, 'negative': 15, 'neutral': 4}
 ```
-
-
-```python
-def get_sentiment_counts(review_list):
-
-    sentiment_counts = {
-        "positive": 0,
-        "negative": 0,
-        "neutral": 0
-    }
-
-    for review in review_list:
-        sentiment = review_sentiment(review)
-        sentiment_counts[sentiment] += 1
-
-    return sentiment_counts
-
-get_sentiment_counts(reviews)
-```
-
-
-
-
-    {'positive': 67, 'negative': 15, 'neutral': 4}
-
-
 
 This spread of sentiments seems reasonable. There is a well-known [skew towards positive reviews in general](https://dspace.mit.edu/handle/1721.1/111093), similar to "grade inflation", and people with neutral opinions are less likely to write reviews in the first place.
 
