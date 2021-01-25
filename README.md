@@ -740,7 +740,7 @@ print(get_review_summary(reviews[2]))
 
 Now, instead of copying and pasting that every time, we can just call it repeatedly!
 
-Write a function that prompts the user to enter a review index, then prints the relevant review summary. The function should be called `review_summary_prompt`, it should take a list of reviews as an argument, and should print information but not return anythi9ng.
+Write a function that prompts the user to enter a review index, then prints the relevant review summary. The function should be called `review_summary_prompt`, it should take a list of reviews as an argument, and should print information but not return anything.
 
 Display the message `"Please enter a review index: "` when prompting for input. You can assume that the user will enter a valid index between 0 and 85.
 
