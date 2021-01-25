@@ -151,6 +151,19 @@ Now, rewrite that code as a function `review_sentiment`, which takes in a review
 
 
 ```python
+def review_sentiment(review):
+    rating = review["rating"]
+    
+    if rating >= 4:
+        return "positive"
+    elif rating <= 2:
+        return "negative"
+    else:
+        return "neutral"
+```
+
+
+```python
 review_sentiment(reviews[2])
 ```
 
@@ -190,6 +203,32 @@ Ok, this is already much cleaner than copying and pasting that `if`/`elif`/`else
 Now, write a function to loop over all of the reviews in the list, and count how many are positive, negative, and neutral.
 
 The function should be called `get_sentiment_counts`, take one argument (the list of reviews), and return a dictionary containing the counts. A counter dictionary has been initialized for you with `"positive"`, `"negative"`, and `"neutral"` as the keys and values starting at 0.
+
+
+```python
+def get_sentiment_counts(review_list):
+
+    sentiment_counts = {
+        "positive": 0,
+        "negative": 0,
+        "neutral": 0
+    }
+
+    for review in review_list:
+        sentiment = review_sentiment(review)
+        sentiment_counts[sentiment] += 1
+
+    return sentiment_counts
+
+get_sentiment_counts(reviews)
+```
+
+
+
+
+    {'positive': 67, 'negative': 15, 'neutral': 4}
+
+
 
 This spread of sentiments seems reasonable. There is a well-known [skew towards positive reviews in general](https://dspace.mit.edu/handle/1721.1/111093), similar to "grade inflation", and people with neutral opinions are less likely to write reviews in the first place.
 
@@ -503,27 +542,30 @@ random.sample(get_negative_reviews(reviews), 3)
 
 
     [{'rating': 1.0,
-      'reviewer_name': 'Toni Bautista',
-      'product_id': 'B00005IBX9',
-      'review_title': 'Great but NOT PERFECT -missing Side water panel',
-      'review_time': '02 24, 2017',
-      'images': ['https://images-na.ssl-images-amazon.com/images/I/71X5NEjZG5L._SY88.jpg'],
-      'styles': {'Color:': ' Brushed Chrome'}},
-     {'rating': 1.0,
-      'reviewer_name': 'mathman54',
+      'reviewer_name': 'Maria Fernandez',
       'product_id': 'B00004RFRV',
-      'review_title': "The bottom looks like it has rusted and I don't know how to ...",
-      'review_time': '02 15, 2016',
-      'images': ['https://images-na.ssl-images-amazon.com/images/I/71qt4Hnra8L._SY88.jpg',
-       'https://images-na.ssl-images-amazon.com/images/I/71Wkg8MesdL._SY88.jpg'],
-      'styles': {'Size:': ' 12-Cup', 'Color:': ' Silver'}},
-     {'rating': 2.0,
-      'reviewer_name': 'Jimmie',
+      'review_title': 'Is it a Bialetti? Came dirty with coffee grounds.',
+      'review_time': '03 22, 2015',
+      'images': ['https://images-na.ssl-images-amazon.com/images/I/71aPg3ZuCzL._SY88.jpg',
+       'https://images-na.ssl-images-amazon.com/images/I/71-2keZacOL._SY88.jpg',
+       'https://images-na.ssl-images-amazon.com/images/I/71Z4C4G-0dL._SY88.jpg'],
+      'styles': {'Size:': ' 6-Cup', 'Color:': ' Silver'}},
+     {'rating': 1.0,
+      'reviewer_name': 'Marcia S.',
       'product_id': 'B0000A1ZMS',
-      'review_title': 'Leaks and more',
-      'review_time': '01 13, 2011',
-      'images': ['https://images-na.ssl-images-amazon.com/images/I/51U4K+PzETL._SY88.jpg'],
-      'styles': {'Color:': ' Black', 'Style Name:': ' Coffeemaker'}}]
+      'review_title': 'Look what happened to this once great Cuisinart coffeemaker.',
+      'review_time': '11 12, 2016',
+      'images': ['https://images-na.ssl-images-amazon.com/images/I/51B8eue4nHL._SY88.jpg',
+       'https://images-na.ssl-images-amazon.com/images/I/519NziREFIL._SY88.jpg',
+       'https://images-na.ssl-images-amazon.com/images/I/51v+A1zWqTL._SY88.jpg'],
+      'styles': {'Color:': ' Black', 'Style Name:': ' Coffeemaker'}},
+     {'rating': 1.0,
+      'reviewer_name': 'SAinVA',
+      'product_id': 'B00005LM0T',
+      'review_title': 'Too much waste',
+      'review_time': '09 7, 2017',
+      'images': ['https://images-na.ssl-images-amazon.com/images/I/71shZggLRHL._SY88.jpg'],
+      'styles': {'Size:': ' 34 oz.', 'Package Type:': ' Standard Packaging'}}]
 
 
 
@@ -543,20 +585,19 @@ get_negative_review_sample(reviews, 4)
 
 
     [{'rating': 1.0,
-      'reviewer_name': 'mathman54',
-      'product_id': 'B00004RFRV',
-      'review_title': "The bottom looks like it has rusted and I don't know how to ...",
-      'review_time': '02 15, 2016',
-      'images': ['https://images-na.ssl-images-amazon.com/images/I/71qt4Hnra8L._SY88.jpg',
-       'https://images-na.ssl-images-amazon.com/images/I/71Wkg8MesdL._SY88.jpg'],
-      'styles': {'Size:': ' 12-Cup', 'Color:': ' Silver'}},
-     {'rating': 2.0,
-      'reviewer_name': 'LMM',
-      'product_id': 'B00008ELEA',
-      'review_title': 'smelled like the cord was burning',
-      'review_time': '06 6, 2016',
-      'images': ['https://images-na.ssl-images-amazon.com/images/I/51xXENQhIGL._SY88.jpg'],
-      'styles': {'Size:': ' 4-Cup'}},
+      'reviewer_name': 'Toni Bautista',
+      'product_id': 'B00005IBX9',
+      'review_title': 'Great but NOT PERFECT -missing Side water panel',
+      'review_time': '02 24, 2017',
+      'images': ['https://images-na.ssl-images-amazon.com/images/I/71X5NEjZG5L._SY88.jpg'],
+      'styles': {'Color:': ' Brushed Chrome'}},
+     {'rating': 1.0,
+      'reviewer_name': 'SAinVA',
+      'product_id': 'B00005LM0T',
+      'review_title': 'Too much waste',
+      'review_time': '09 7, 2017',
+      'images': ['https://images-na.ssl-images-amazon.com/images/I/71shZggLRHL._SY88.jpg'],
+      'styles': {'Size:': ' 34 oz.', 'Package Type:': ' Standard Packaging'}},
      {'rating': 1.0,
       'reviewer_name': 'fifrox',
       'product_id': 'B00005MF9C',
@@ -565,12 +606,12 @@ get_negative_review_sample(reviews, 4)
       'images': ['https://images-na.ssl-images-amazon.com/images/I/81QVkUT4hdL._SY88.jpg'],
       'styles': {'Color:': ' Black/Stainless Steel'}},
      {'rating': 1.0,
-      'reviewer_name': 'Andrew Furlong',
-      'product_id': 'B00005MF9C',
-      'review_title': 'but instead ran along the underside of the part of the maker that holds the grounds and finally dropping at an angle at which a',
-      'review_time': '02 22, 2017',
-      'images': ['https://images-na.ssl-images-amazon.com/images/I/71kh1XatynL._SY88.jpg'],
-      'styles': {'Color:': ' Black/Stainless Steel'}}]
+      'reviewer_name': 'EJ',
+      'product_id': 'B00004RFRV',
+      'review_title': 'Rusted spots everywhere fresh out the box...nasty',
+      'review_time': '06 4, 2017',
+      'images': ['https://images-na.ssl-images-amazon.com/images/I/71Dbr6X0bYL._SY88.jpg'],
+      'styles': {'Size:': ' 9-Cup', 'Color:': ' Silver'}}]
 
 
 
@@ -599,34 +640,38 @@ get_positive_review_sample(reviews, 4)
 
 
 
-    [{'rating': 4.0,
-      'reviewer_name': 'Chief',
-      'product_id': 'B00005NCWQ',
-      'review_title': 'Farberware Yosemite Percolator',
-      'review_time': '04 29, 2017',
-      'images': ['https://images-na.ssl-images-amazon.com/images/I/615l-Cs9elL._SY88.jpg'],
-      'styles': {'Size:': ' 8-Cup'}},
+    [{'rating': 5.0,
+      'reviewer_name': 'Feles (muy Mala)',
+      'product_id': 'B00004RFRV',
+      'review_title': 'Awesome portion control for one person!',
+      'review_time': '08 5, 2017',
+      'images': ['https://images-na.ssl-images-amazon.com/images/I/71BcwbkGyfL._SY88.jpg'],
+      'styles': {'Size:': ' 6-Cup', 'Color:': ' Purple'}},
      {'rating': 5.0,
-      'reviewer_name': 'Jan',
-      'product_id': 'B00005MF9C',
-      'review_title': "... yet but bought what I think will be a better mug because it's stainless inside & out unlike the ...",
-      'review_time': '07 13, 2017',
-      'images': ['https://images-na.ssl-images-amazon.com/images/I/61+FIYkLBIL._SY88.jpg'],
-      'styles': {'Color:': ' Black/Stainless Steel'}},
+      'reviewer_name': 'Cherie E.',
+      'product_id': 'B000063SRL',
+      'review_title': 'More than just a cutting board!',
+      'review_time': '08 10, 2016',
+      'images': ['https://images-na.ssl-images-amazon.com/images/I/61oleNoBZ7L._SY88.jpg',
+       'https://images-na.ssl-images-amazon.com/images/I/71FumLGotfL._SY88.jpg',
+       'https://images-na.ssl-images-amazon.com/images/I/71MHMHDel+L._SY88.jpg',
+       'https://images-na.ssl-images-amazon.com/images/I/61gZsMGlRlL._SY88.jpg',
+       'https://images-na.ssl-images-amazon.com/images/I/61QVdUMKB2L._SY88.jpg'],
+      'styles': {'Size:': ' 14 by 17 inches', 'Color:': ' Granite Color'}},
      {'rating': 5.0,
-      'reviewer_name': 'Susan C',
-      'product_id': 'B00006IFQJ',
-      'review_title': 'I LOVE THIS LITTLE POT!!!',
-      'review_time': '04 10, 2016',
-      'images': ['https://images-na.ssl-images-amazon.com/images/I/61ATK5Xz2zL._SY88.jpg'],
-      'styles': {'Size:': ' None', 'Color:': ' Silver'}},
-     {'rating': 4.0,
-      'reviewer_name': 'Sinister',
-      'product_id': 'B00005NCX5',
-      'review_title': 'So far, so good!',
-      'review_time': '09 9, 2017',
-      'images': ['https://images-na.ssl-images-amazon.com/images/I/71i48+HIQYL._SY88.jpg'],
-      'styles': {'Style Name:': ' Coffee Maker'}}]
+      'reviewer_name': 'A. Kronberg',
+      'product_id': 'B00005OTXY',
+      'review_title': 'this pot did a great job of boiling water in 20 minutes',
+      'review_time': '09 4, 2017',
+      'images': ['https://images-na.ssl-images-amazon.com/images/I/71jzwfSoRiL._SY88.jpg'],
+      'styles': {'Size:': ' One Size', 'Color:': ' Black'}},
+     {'rating': 5.0,
+      'reviewer_name': 'A. Sullivan',
+      'product_id': 'B000063SSI',
+      'review_title': 'Hand wash only',
+      'review_time': '06 10, 2015',
+      'images': ['https://images-na.ssl-images-amazon.com/images/I/71j9qBm514L._SY88.jpg'],
+      'styles': {'Package Quantity:': ' 1'}}]
 
 
 
@@ -792,18 +837,18 @@ for review in negative_samples:
 ```
 
     Examples of positive reviews:
-    "... yet but bought what I think will be a better mug because it's stainless inside & out unlike the ...": This was a positive review written by Jan in 2017.
-    "Perfect coffee water measuring cup": This was a positive review written by Wyo Steve in 2015.
-    "Keeps the air out of there!": This was a positive review written by Noah Boddy in 2016.
-    "Excellent Quality Press but it's not TWO CUPS!!!": This was a positive review written by Nadia M in 2013.
-    "Perfect for those people who care about their time in the kitchen": This was a positive review written by Terri S in 2016.
+    "Best piece of furniture my daughter has!": This was a positive review written by Melissa Coy in 2017.
+    "One great French Press coffee maker": This was a positive review written by Michael Z (QA Engineer) in 2016.
+    "Awesome portion control for one person!": This was a positive review written by Feles (muy Mala) in 2017.
+    "Love my Moka pots!": This was a positive review written by B. Laska in 2015.
+    "Allow the auroma of perculated coffee to fill your home......": This was a positive review written by Sierra&#039;s Mom in 2015.
     
     Examples of negative reviews:
-    "Garbage!!!": This was a negative review written by cas in 2018.
-    "The bottom looks like it has rusted and I don't know how to ...": This was a negative review written by mathman54 in 2016.
-    "Too much waste": This was a negative review written by SAinVA in 2017.
-    "Returned - produced revolting burnt plastic flavored coffee, and seemed flawed.": This was a negative review written by GoClick in 2015.
     "Look what happened to this once great Cuisinart coffeemaker.": This was a negative review written by Marcia S. in 2016.
+    "The bottom looks like it has rusted and I don't know how to ...": This was a negative review written by mathman54 in 2016.
+    "Leaks and more": This was a negative review written by Jimmie in 2011.
+    "Great but NOT PERFECT -missing Side water panel": This was a negative review written by Toni Bautista in 2017.
+    "Works great for a week then fails!": This was a negative review written by fifrox in 2016.
 
 
 ### Summary Prompt
