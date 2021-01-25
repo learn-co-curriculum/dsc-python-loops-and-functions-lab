@@ -1,8 +1,8 @@
-# Python Loops and Functions - Summative Lab
+# Python Loops and Functions - Cumulative Lab
 
 ## Introduction
 
-You made it through another section — excellent work! This summative lab will return to the Amazon product review dataset and allow you to flex your new skills.
+You made it through another section — excellent work! This cumulative lab will return to the Amazon product review dataset and allow you to flex your new skills.
 
 ## Objectives
 
@@ -44,13 +44,13 @@ In other cases, you will need to write the function signature yourself, e.g.
 ### Requirements
 
 #### 1. Data Summary
-While reusing some code from the previous summative lab, write code to loop over all of the records in the dataset to summarize its contents, specifically in terms of overall review sentiment and the years when the reviews were written.
+While reusing some code from the previous cumulative lab, write code to loop over all of the records in the dataset to summarize its contents, specifically in terms of overall review sentiment and the years when the reviews were written.
 
 #### 2. Subset Sample
 Provide a sample of records that meet particular criteria.
 
 #### 3. Individual Review Summary
-Refactor the code from the previous summative lab so that it is contained in a function and prompts the user to select which review to summarize.
+Refactor the code from the previous cumulative lab so that it is contained in a function and prompts the user to select which review to summarize.
 
 ## Data Summary
 
@@ -1155,4 +1155,4 @@ review_summary_prompt(reviews)
 
 ## Conclusion
 
-Congratulations, you made it to the end of another summative lab! In this lab you practiced refactoring previously-written code to use functions, and using loops to avoid repetition and perform analyses of the whole dataset as well as certain subsets.
+Congratulations, you made it to the end of another cumulative lab! In this lab you practiced refactoring previously-written code to use functions, and using loops to avoid repetition and perform analyses of the whole dataset as well as certain subsets.
