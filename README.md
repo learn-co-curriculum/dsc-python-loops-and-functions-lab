@@ -22,7 +22,7 @@ Empirical Methods in Natural Language Processing (EMNLP), 2019
 
 We are still using a cleaned-up, coffee-specific, sample version of their [full dataset](https://nijianmo.github.io/amazon/index.html).
 
-![pouring coffee](images/coffee.jpg)
+![pouring coffee](https://curriculum-content.s3.amazonaws.com/data-science/images/coffee.jpg)
 <span>Photo by <a href="https://unsplash.com/@dumdidu?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Philipp Cordts</a> on <a href="https://unsplash.com/s/photos/coffee-pot?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
 
 In some cases, we will write the function signature for you, e.g. 
